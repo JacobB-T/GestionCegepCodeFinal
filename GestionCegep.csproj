@@ -96,7 +96,17 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>gestionCegepDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="GestionCegepDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GestionCegepDataSet1.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Interfaces\IHeureCours.cs" />
+    <Compile Include="Models\CoursShould.cs" />
+    <Compile Include="Models\EnseignantsShould.cs" />
+    <Compile Include="Models\EtudiantsShould.cs" />
+    <Compile Include="Models\MembreCegepShould.cs" />
+    <Compile Include="Models\ProgrammeShould.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Formulaires\Accueil.resx">
@@ -127,6 +137,17 @@
     </None>
     <None Include="gestionCegepDataSet.xss">
       <DependentUpon>gestionCegepDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="GestionCegepDataSet1.xsc">
+      <DependentUpon>GestionCegepDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="GestionCegepDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>GestionCegepDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="GestionCegepDataSet1.xss">
+      <DependentUpon>GestionCegepDataSet1.xsd</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
