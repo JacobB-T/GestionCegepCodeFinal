@@ -1,8 +1,10 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+
+using XUnit;
 using GestionCegep.Models;
 
 namespace XUnit.Tests.Models
@@ -20,13 +22,13 @@ namespace XUnit.Tests.Models
         [InlineData(10, 1)]
         [InlineData(0, 0)]
         [InlineData(101, 10.01)]
+
         public void TestCoutImpressionEtudiant(int nbPage, double expected)
         {
             Etudiants etudiants1 = new Etudiants();
             double resultat = etudiants1.CoutImpression(nbPage);
             Assert.Equal(expected, resultat);
         }
-
 
         /// <summary>
         /// Méthode de test Xunit pour la méthode AnneeExp de la classe Enseignant
@@ -40,7 +42,9 @@ namespace XUnit.Tests.Models
         public void TestAnneeExp(DateTime DateDebut, int nbAnneExpect)
         {
             Enseignants enseignants1 = new Enseignants();
+
             enseignants1.DateDebutEnseigne = DateDebut;
+
             int resultat = enseignants1.NbAnneeExperience();
             Assert.Equal(nbAnneExpect, resultat);
         }
