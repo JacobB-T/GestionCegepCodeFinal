@@ -64,6 +64,8 @@ namespace GestionCegep.Formulaires
             //Vider les messages d'erreurs d'ajout de gens
             lblErreurDate.Text = "";
             lblErreurNuméro.Text = "";
+            lblNomErreurAjout.Text = "";
+            lblPrenomErreurAjout.Text = "";
 
 
             //Mettre les programmes dans la combobox d'ajout de programme
@@ -580,9 +582,36 @@ namespace GestionCegep.Formulaires
                 Etudiants etudiant1 = new Etudiants();
                 //Validation du numéro
                 Regex patternEtudiant = new Regex("^[A-Z]{2}[0-9]{5}$");
-                if (patternEtudiant.IsMatch(txtNumeroMembreAjout.Text)) { etudiant1.NumEtu = txtNumeroMembreAjout.Text; } else { lblErreurNuméro.Text = "Pattern: XX00000"; verification = true; }
-                etudiant1.Prenom = txtNomMembreAjout.Text;
-                etudiant1.Nom = txtNomFamilleEMembreAjout.Text;
+                if (patternEtudiant.IsMatch(txtNumeroMembreAjout.Text)) 
+                { 
+                    etudiant1.NumEtu = txtNumeroMembreAjout.Text; 
+                } 
+                else 
+                { 
+                    lblErreurNuméro.Text = "Pattern: XX00000";
+                    verification = true; 
+                }
+                //Validation du prénom
+                Regex patternNomPrenom = new Regex("^([A-Z][a-z]+)(-? ?[A-Z][a-z]+)*$"); //Prénom et nom commencent par une majuscule, suivi d'une ou plusieurs minuscules, puis possibilité d'avoir un tiret ou un espace et répété
+                if (patternNomPrenom.IsMatch(txtNomMembreAjout.Text))
+                {
+                    etudiant1.Prenom = txtNomMembreAjout.Text;
+                }
+                else
+                {
+                    lblPrenomErreurAjout.Text = "Prénom invalide (Aaaaa[(-Aaaaa)( Aaaaaa)])";
+                    verification = false;
+                }
+                //Validation du nom
+                if (patternNomPrenom.IsMatch(txtNomMembreAjout.Text))
+                {
+                    etudiant1.Nom = txtNomFamilleEMembreAjout.Text;
+                }
+                else
+                {
+                    lblNomErreurAjout.Text = "Nom invalide (Aaaaa[(-Aaaaa)( Aaaaaa)])";
+                    verification = false;
+                }
                 //Trouver le programme
                 foreach (Programme programme1 in Programme.ListProgrammes)
                 {
@@ -605,6 +634,8 @@ namespace GestionCegep.Formulaires
                         //Vider les messages d'erreurs
                         lblErreurDate.Text = "";
                         lblErreurNuméro.Text = "";
+                        lblNomErreurAjout.Text = "";
+                        lblPrenomErreurAjout.Text = "";
                     }
                     else { MessageBox.Show("Échec de l'ajout", "Échec"); }
                 }
@@ -806,6 +837,11 @@ namespace GestionCegep.Formulaires
                 }
                 resultat.Close();
             }
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
