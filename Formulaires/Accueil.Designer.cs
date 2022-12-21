@@ -53,6 +53,9 @@
             this.cboListeCoursInscrit = new System.Windows.Forms.ComboBox();
             this.gbxResponsable = new System.Windows.Forms.GroupBox();
             this.gbxAjoutMembre = new System.Windows.Forms.GroupBox();
+            this.lblSupprimerEleve = new System.Windows.Forms.Button();
+            this.lblErreurDate = new System.Windows.Forms.Label();
+            this.lblErreurNuméro = new System.Windows.Forms.Label();
             this.btnModifier = new System.Windows.Forms.Button();
             this.btnSelectionnerModif = new System.Windows.Forms.Button();
             this.cboProgrammeMembreAjout = new System.Windows.Forms.ComboBox();
@@ -75,9 +78,8 @@
             this.lblPrixAnnonce = new System.Windows.Forms.Label();
             this.lblPrixImpressionResultat = new System.Windows.Forms.Label();
             this.btnCalculerPrixImp = new System.Windows.Forms.Button();
-            this.lblErreurNuméro = new System.Windows.Forms.Label();
-            this.lblErreurDate = new System.Windows.Forms.Label();
-            this.lblSupprimerEleve = new System.Windows.Forms.Button();
+            this.lblPrenomErreurAjout = new System.Windows.Forms.Label();
+            this.lblNomErreurAjout = new System.Windows.Forms.Label();
             this.gbxInformationsPerso.SuspendLayout();
             this.gbxCours.SuspendLayout();
             this.gbxResponsable.SuspendLayout();
@@ -329,6 +331,8 @@
             // 
             // gbxAjoutMembre
             // 
+            this.gbxAjoutMembre.Controls.Add(this.lblNomErreurAjout);
+            this.gbxAjoutMembre.Controls.Add(this.lblPrenomErreurAjout);
             this.gbxAjoutMembre.Controls.Add(this.lblSupprimerEleve);
             this.gbxAjoutMembre.Controls.Add(this.lblErreurDate);
             this.gbxAjoutMembre.Controls.Add(this.lblErreurNuméro);
@@ -353,6 +357,39 @@
             this.gbxAjoutMembre.TabIndex = 14;
             this.gbxAjoutMembre.TabStop = false;
             this.gbxAjoutMembre.Text = "Ajouter un membre du Cégep";
+            // 
+            // lblSupprimerEleve
+            // 
+            this.lblSupprimerEleve.Location = new System.Drawing.Point(529, 177);
+            this.lblSupprimerEleve.Name = "lblSupprimerEleve";
+            this.lblSupprimerEleve.Size = new System.Drawing.Size(131, 33);
+            this.lblSupprimerEleve.TabIndex = 23;
+            this.lblSupprimerEleve.Text = "Supprimer";
+            this.lblSupprimerEleve.UseVisualStyleBackColor = true;
+            this.lblSupprimerEleve.Click += new System.EventHandler(this.lblSupprimerEleve_Click);
+            // 
+            // lblErreurDate
+            // 
+            this.lblErreurDate.AutoSize = true;
+            this.lblErreurDate.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.lblErreurDate.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblErreurDate.ForeColor = System.Drawing.Color.Red;
+            this.lblErreurDate.Location = new System.Drawing.Point(246, 213);
+            this.lblErreurDate.Name = "lblErreurDate";
+            this.lblErreurDate.Size = new System.Drawing.Size(40, 16);
+            this.lblErreurDate.TabIndex = 22;
+            this.lblErreurDate.Text = "label1";
+            // 
+            // lblErreurNuméro
+            // 
+            this.lblErreurNuméro.AutoSize = true;
+            this.lblErreurNuméro.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblErreurNuméro.ForeColor = System.Drawing.Color.Red;
+            this.lblErreurNuméro.Location = new System.Drawing.Point(12, 77);
+            this.lblErreurNuméro.Name = "lblErreurNuméro";
+            this.lblErreurNuméro.Size = new System.Drawing.Size(40, 16);
+            this.lblErreurNuméro.TabIndex = 21;
+            this.lblErreurNuméro.Text = "label1";
             // 
             // btnModifier
             // 
@@ -552,38 +589,28 @@
             this.btnCalculerPrixImp.UseVisualStyleBackColor = true;
             this.btnCalculerPrixImp.Click += new System.EventHandler(this.btnCalculerPrixImp_Click);
             // 
-            // lblErreurNuméro
+            // lblPrenomErreurAjout
             // 
-            this.lblErreurNuméro.AutoSize = true;
-            this.lblErreurNuméro.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblErreurNuméro.ForeColor = System.Drawing.Color.Red;
-            this.lblErreurNuméro.Location = new System.Drawing.Point(12, 77);
-            this.lblErreurNuméro.Name = "lblErreurNuméro";
-            this.lblErreurNuméro.Size = new System.Drawing.Size(40, 16);
-            this.lblErreurNuméro.TabIndex = 21;
-            this.lblErreurNuméro.Text = "label1";
+            this.lblPrenomErreurAjout.AutoSize = true;
+            this.lblPrenomErreurAjout.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPrenomErreurAjout.ForeColor = System.Drawing.Color.Red;
+            this.lblPrenomErreurAjout.Location = new System.Drawing.Point(12, 144);
+            this.lblPrenomErreurAjout.Name = "lblPrenomErreurAjout";
+            this.lblPrenomErreurAjout.Size = new System.Drawing.Size(40, 16);
+            this.lblPrenomErreurAjout.TabIndex = 24;
+            this.lblPrenomErreurAjout.Text = "label1";
+            this.lblPrenomErreurAjout.Click += new System.EventHandler(this.label1_Click);
             // 
-            // lblErreurDate
+            // lblNomErreurAjout
             // 
-            this.lblErreurDate.AutoSize = true;
-            this.lblErreurDate.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.lblErreurDate.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblErreurDate.ForeColor = System.Drawing.Color.Red;
-            this.lblErreurDate.Location = new System.Drawing.Point(246, 213);
-            this.lblErreurDate.Name = "lblErreurDate";
-            this.lblErreurDate.Size = new System.Drawing.Size(40, 16);
-            this.lblErreurDate.TabIndex = 22;
-            this.lblErreurDate.Text = "label1";
-            // 
-            // lblSupprimerEleve
-            // 
-            this.lblSupprimerEleve.Location = new System.Drawing.Point(529, 177);
-            this.lblSupprimerEleve.Name = "lblSupprimerEleve";
-            this.lblSupprimerEleve.Size = new System.Drawing.Size(131, 33);
-            this.lblSupprimerEleve.TabIndex = 23;
-            this.lblSupprimerEleve.Text = "Supprimer";
-            this.lblSupprimerEleve.UseVisualStyleBackColor = true;
-            this.lblSupprimerEleve.Click += new System.EventHandler(this.lblSupprimerEleve_Click);
+            this.lblNomErreurAjout.AutoSize = true;
+            this.lblNomErreurAjout.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNomErreurAjout.ForeColor = System.Drawing.Color.Red;
+            this.lblNomErreurAjout.Location = new System.Drawing.Point(14, 213);
+            this.lblNomErreurAjout.Name = "lblNomErreurAjout";
+            this.lblNomErreurAjout.Size = new System.Drawing.Size(40, 16);
+            this.lblNomErreurAjout.TabIndex = 25;
+            this.lblNomErreurAjout.Text = "label1";
             // 
             // FormAccueil
             // 
@@ -668,5 +695,7 @@
         private System.Windows.Forms.Label lblErreurNuméro;
         private System.Windows.Forms.Label lblErreurDate;
         private System.Windows.Forms.Button lblSupprimerEleve;
+        private System.Windows.Forms.Label lblNomErreurAjout;
+        private System.Windows.Forms.Label lblPrenomErreurAjout;
     }
 }
